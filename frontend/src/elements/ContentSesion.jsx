@@ -144,7 +144,7 @@ const ContentSesion = ({ inLogin }) => {
 
     return (
         <Contenedor>
-            <Logo src={windowWidth>=550 ? LogoG : LogoP} alt="Logo Recircular" />
+            <Logo src={windowWidth>550 ? LogoG : LogoP} alt="Logo Recircular" />
             <Formulario  onSubmit={handleSubmit}>
                 <ContInput>
                     <Input 
