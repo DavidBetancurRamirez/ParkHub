@@ -14,6 +14,15 @@ const ContenedorFooter = styled.footer`
         width: 100%;
         text-align: center;
     }
+
+    @media (max-width: 800px) {
+        padding: 15px;
+
+        > p {
+            font-size: 11px;
+            margin-top: 10px;
+        }
+    }
 `
 const Contenedor = styled.div`
     display: flex;
@@ -22,6 +31,12 @@ const Contenedor = styled.div`
     border-bottom: 1px dashed ${colores.gris};
     padding-bottom: 20px;
     margin-bottom: 10px;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
 `
 const Info = styled.div`
     img {
@@ -34,6 +49,25 @@ const Info = styled.div`
         font-weight: lighter;
         width: 350px;
     }
+
+    @media (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px dashed ${colores.gris};
+        padding-bottom: 15px;
+
+        img {
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 12px;
+            width: 100%;
+            text-align: center;
+        }
+    }
 `
 const Links = styled.div`
     p {
@@ -42,14 +76,31 @@ const Links = styled.div`
         font-weight: lighter;
         margin: 5px;
         cursor: pointer;
+
+        @media (max-width: 800px) {
+            font-size: 12px;
+        }
     }
 
-    p:nth-child(1) {
+    > p {
         color: ${colores.moradoClaro};
         margin-bottom: 5px;
         font-size: 15px;
         font-weight: normal;
         cursor: auto;
+
+        @media (max-width: 800px) {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 800px) {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px dashed ${colores.gris};
     }
 `
 const Contacto = styled.div`
@@ -63,6 +114,18 @@ const Contacto = styled.div`
 
     div {
         display: flex;
+    }
+
+    @media (max-width: 800px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 15px 0;
+
+        p {
+            font-size: 14px;
+        }
     }
 `
 const RedSocial = styled.div`
@@ -79,6 +142,11 @@ const RedSocial = styled.div`
         width: 50%;
         height: 50%;
     }
+
+    @media (max-width: 800px) {
+        width: 30px;
+        height: 30px;
+    }
 `
 
 
@@ -93,10 +161,14 @@ const Footer = () => {
 
                 <Links>
                     <p>Links útiles</p>
-                    <p>Principal</p>
-                    <p>Reservar</p>
-                    <p>Historial</p>
-                    <p>Organización</p>
+                    <div>
+                        <p>Principal</p>
+                        <p>Reservar</p>
+                    </div>
+                    <div>
+                        <p>Historial</p>
+                        <p>Organización</p>
+                    </div>
                 </Links>
 
                 <Contacto>
