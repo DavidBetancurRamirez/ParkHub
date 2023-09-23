@@ -19,7 +19,7 @@ const Contenedor = styled.div`
         padding: 10px;
     }
 `
-const Navegar = styled.div`
+const Navegar = styled.nav`
     height: 100%;
     display: flex;
     align-items: center;
