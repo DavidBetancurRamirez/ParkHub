@@ -77,9 +77,7 @@ const BotonMenu = styled.div`
 `
 
 
-const Header = ({ paginaActual }) => {    
-    paginaActual = "principal"
-
+const Header = ({ paginaActual="" }) => {
     const paginaActiva = (nombre) => {
         return paginaActual.toLowerCase()===nombre ? "active" : ""
     }

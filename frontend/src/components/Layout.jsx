@@ -13,11 +13,11 @@ const Content = styled.div`
 `;
 
 
-const Layout = ({ children }) => {
+const Layout = ({ children, paginaActual }) => {
     // Para colocar el Header y el footer en la pagina
     return (
         <Wrapper>
-            <Header />
+            <Header paginaActual={paginaActual} />
             <Content>{children}</Content>
             <Footer />
         </Wrapper>
