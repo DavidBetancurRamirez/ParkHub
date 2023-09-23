@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colores from "../styles/colores";
 import LogoB from "../images/logoB.png";
 import { FaUserCircle } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
+import Menu from "../components/Menu";
 
 const Contenedor = styled.div`
     background-color: ${colores.moradoClaro};
@@ -40,7 +40,7 @@ const Botones = styled.div`
     }
 
     p:hover, p.active {
-        color: white;
+        color: #fff;
     }
 
     @media (max-width: 800px) {
@@ -64,18 +64,6 @@ const Usuario = styled.div`
         display: none;
     }
 `
-const BotonMenu = styled.div`
-    @media (min-width: 800px) {
-        display: none;
-    }
-
-    svg {
-        width: 30px;
-        height: 30px;
-        color: #fff;
-        cursor: pointer;
-    }
-`
 
 
 const Header = ({ paginaActual="" }) => {
@@ -83,9 +71,7 @@ const Header = ({ paginaActual="" }) => {
 
     return (
         <Contenedor>
-            <BotonMenu>
-                <GiHamburgerMenu />
-            </BotonMenu>
+            <Menu paginaActual={paginaActual} />
             <Navegar>
                 <Logo src={LogoB} alt="Logo ParkHub" />
                 <Botones>
