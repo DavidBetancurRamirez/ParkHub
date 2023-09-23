@@ -36,9 +36,10 @@ const Botones = styled.div`
         margin-right: 15px;
         cursor: pointer;
         color: ${colores.gris};
+        transition: all 1s;
     }
 
-    p.active {
+    p:hover, p.active {
         color: white;
     }
 
@@ -78,9 +79,7 @@ const BotonMenu = styled.div`
 
 
 const Header = ({ paginaActual="" }) => {
-    const paginaActiva = (nombre) => {
-        return paginaActual.toLowerCase()===nombre ? "active" : ""
-    }
+    const paginas = ["Principal", "Reservar", "Historial", "Organización"];
 
     return (
         <Contenedor>
@@ -90,10 +89,9 @@ const Header = ({ paginaActual="" }) => {
             <Navegar>
                 <Logo src={LogoB} alt="Logo ParkHub" />
                 <Botones>
-                    <p className={paginaActiva("principal")}>Principal</p>
-                    <p className={paginaActiva("reservar")}>Reservar</p>
-                    <p className={paginaActiva("historial")}>Historial</p>
-                    <p className={paginaActiva("organizacion")}>Organización</p>
+                    {paginas.map((pagina) => (
+                        <p key={pagina} className={paginaActual===pagina ? "active" : ""}>{pagina}</p>
+                    ))}
                 </Botones>
             </Navegar>
             <Usuario>
