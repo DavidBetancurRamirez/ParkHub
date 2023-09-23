@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContextProvider } from './context/userContext';
 import { MessageContextProvider } from './context/messageContext';
 import Sesion from './components/Sesion';
-import App from './App';
+import Principal from './components/Principal';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           {/* Ruteo */}
           <BrowserRouter>
             <Routes>
-              <Route path='/' element={<App />} />
+              <Route path='/' element={<Principal />} />
               <Route path='/sesion' element={<Sesion />} />
             </Routes>
           </BrowserRouter>
