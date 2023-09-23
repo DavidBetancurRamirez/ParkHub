@@ -82,6 +82,8 @@ const Links = styled.div`
         }
     }
 
+    p:hover { color: ${colores.moradoClaro}; }
+
     > p {
         color: ${colores.moradoClaro};
         margin-bottom: 5px;
@@ -114,6 +116,12 @@ const Contacto = styled.div`
 
     div {
         display: flex;
+        transition: background-color 0.3s;
+
+        > div:hover {
+            background-color: ${colores.moradoClaro};
+            color: #fff;
+        }
     }
 
     @media (max-width: 800px) {

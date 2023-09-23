@@ -36,7 +36,7 @@ const Botones = styled.div`
         margin-right: 15px;
         cursor: pointer;
         color: ${colores.gris};
-        transition: all 1s;
+        transition: all 0.3s;
     }
 
     p:hover, p.active {
