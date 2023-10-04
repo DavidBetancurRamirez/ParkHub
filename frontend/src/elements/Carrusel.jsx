@@ -29,7 +29,7 @@ const ContenedorInfo = styled.article`
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
 
     > p {
         margin-top: 60px;

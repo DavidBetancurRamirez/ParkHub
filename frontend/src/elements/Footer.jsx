@@ -10,7 +10,7 @@ const ContenedorFooter = styled.footer`
 
     > p {
         color: #fff;
-        font-size: 12px;
+        font-size: 0.8rem;
         width: 100%;
         text-align: center;
     }
@@ -18,10 +18,7 @@ const ContenedorFooter = styled.footer`
     @media (max-width: 800px) {
         padding: 15px;
 
-        > p {
-            font-size: 11px;
-            margin-top: 10px;
-        }
+        > p { margin-top: 10px; }
     }
 `
 const Contenedor = styled.div`
@@ -39,13 +36,11 @@ const Contenedor = styled.div`
     }
 `
 const Info = styled.div`
-    img {
-        height: 50px;
-    }
+    img { height: 50px; }
 
     p {
         color: #fff;
-        font-size: 13px;
+        font-size: 0.9rem;
         font-weight: lighter;
         width: 350px;
     }
@@ -63,7 +58,6 @@ const Info = styled.div`
         }
 
         p {
-            font-size: 12px;
             width: 100%;
             text-align: center;
         }
@@ -72,14 +66,10 @@ const Info = styled.div`
 const Links = styled.div`
     p {
         color: #fff;
-        font-size: 14px;
         font-weight: lighter;
         margin: 5px;
         cursor: pointer;
-
-        @media (max-width: 800px) {
-            font-size: 12px;
-        }
+        transition: all 0.5s ease;
     }
 
     p:hover { color: ${colores.moradoClaro}; }
@@ -87,13 +77,8 @@ const Links = styled.div`
     > p {
         color: ${colores.moradoClaro};
         margin-bottom: 5px;
-        font-size: 15px;
-        font-weight: normal;
+        font-size: 1.1rem;
         cursor: auto;
-
-        @media (max-width: 800px) {
-            font-size: 14px;
-        }
     }
 
     @media (max-width: 800px) {
@@ -109,20 +94,11 @@ const Contacto = styled.div`
     p {
         color: ${colores.moradoClaro};
         margin-bottom: 10px;
-        font-size: 15px;
-        font-weight: normal;
+        font-size: 1.1rem;
         cursor: auto;
     }
 
-    div {
-        display: flex;
-        transition: background-color 0.3s;
-
-        > div:hover {
-            background-color: ${colores.moradoClaro};
-            color: #fff;
-        }
-    }
+    div { display: flex; }
 
     @media (max-width: 800px) {
         display: flex;
@@ -130,10 +106,6 @@ const Contacto = styled.div`
         justify-content: space-evenly;
         width: 100%;
         padding: 15px 0;
-
-        p {
-            font-size: 14px;
-        }
     }
 `
 const RedSocial = styled.div`
@@ -145,10 +117,17 @@ const RedSocial = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 10px;
+    transition: background-color 0.5s;
+    cursor: pointer;
 
     svg {
         width: 50%;
         height: 50%;
+    }
+
+    &:hover {
+        background-color: ${colores.moradoClaro};
+        color: #fff;
     }
 
     @media (max-width: 800px) {
