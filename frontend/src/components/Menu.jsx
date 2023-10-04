@@ -28,6 +28,7 @@ const Contenedor = styled.div`
     height: 100vh;
     background-color: ${colores.moradoClaro};
     padding: 15px 10px;
+    z-index: 10;
 `
 const Navegar = styled.nav`
     margin: 20px 10px;
