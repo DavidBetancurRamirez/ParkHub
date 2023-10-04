@@ -21,3 +21,15 @@ export const Input = styled.input`
     width: 100%;
     height: 100%;
 `
+
+export const ContenedorScroll = styled.article`
+    display: flex;
+    width: ${props => (props.size=="full" ? "100%" : "90%")};
+    white-space: nowrap;
+    overflow-x: auto;
+    justify-content: ${props => (props.$alineado=="centro" ? "center" : "auto")};s
+
+    > div { margin-top: 10px; }
+
+    @media (max-width: 800px) { width: 100%; }
+`
