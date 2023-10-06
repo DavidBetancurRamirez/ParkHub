@@ -16,7 +16,7 @@ const Contenedor = styled.article`
         margin-bottom: 5px;
     }
 `
-const ImgAliado = styled.img`
+const ContenedorAliado = styled.img`
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -39,7 +39,7 @@ const Aliados = () => {
                 {aliados.map((aliado,index) => {
                     return (
                         <div key={index}>
-                            <ImgAliado src={aliado} />
+                            <ContenedorAliado src={aliado} />
                         </div>
                     )
                 })}
