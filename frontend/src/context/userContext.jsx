@@ -3,7 +3,7 @@ import axios from "axios"
 import { createContext, useContext, useState } from "react"
 import { validarEmail, validarPassword } from "../functions/Formularios";
 
-
+const API_BASE_URL = 'http://localhost:8000';
 const userContext = createContext();
 
 export const useUser = () => {
@@ -16,12 +16,8 @@ export const useUser = () => {
 export const UserContextProvider = (props) => {
     const [user, setUser] = useState(null);
 
-    const createUser = async ({ username, email, password }) => {
+    const signUp = async ({ username, email, password }) => {
         try {
-            // Validacion de parametros
-            const existe = await getUser(username);
-            if (existe) return "Este usuario ya existe";
-
             if (!validarEmail(email)) return "Email no valido";
             if (!validarPassword(password)) return "La contraseña no es valida";
 
@@ -31,8 +27,8 @@ export const UserContextProvider = (props) => {
                 email,
                 password
             };
-            
-            await axios.post("/usuarios", usuario);
+            // SI es null es que usuario o contraseña ya existen
+            const response = await axios.post(API_BASE_URL + "/signup", usuario);
             
             setUser(usuario);
             return usuario;
@@ -41,15 +37,9 @@ export const UserContextProvider = (props) => {
         }
     }
     
-    const deleteUser = async (buscar) => {
+    const deleteUser = async (id) => {
         try {
-            // Buscar usuario en bd
-            const usuario = await getUser(buscar);
-            if (!usuario) return "El usuario no existe";
-    
-            // Inactivar usuario
-            usuario.activo = false;
-            await editUser(usuario);
+            const response = await axios.put(API_BASE_URL + "/delete/" + id);
             return true;
         } catch (error) {
             return false;
@@ -57,46 +47,44 @@ export const UserContextProvider = (props) => {
     }
     
     const editUser = async (usuario) => {
-        
+        try {
+            const response = await axios.put(API_BASE_URL + "/update_profile", usuario);
+            return true;
+        } catch (error) {
+            return false;
+        }
     }
 
     const getUser = async (buscar) => {
         try {
-            const options = {
-                method: 'GET',
-                url: `/usuarios/${buscar}`,
-                headers: {}
-            };
             // Se puede obtener por id o por username
-            const response = await axios.get(options);
-            return response.data;
+            const response = await axios.get(`${API_BASE_URL}/users/${buscar}`);
+            return response?.data;
         } catch (error) {
-            return null;
+            return null
         }
     }
     
     const login = async ({ username, password }) => {
-        const mensaje = "Username o password no validos";
-
-        // Obtener usuario
-        const usuario = await getUser(username);
-        if (!usuario) throw new Error(mensaje)
-
-        // Validar password
-        const iguales = usuario.getPassword===password;
-
-        // En caso de no coincidir devolver mensaje
-        if (!usuario || !iguales) throw new Error(mensaje)
-
-        setUser(usuario);
-        return usuario;
+        try {
+            // SI ES NULL NO SE PUEDE
+            const usuario = await axios.post(
+                            `${API_BASE_URL}/login`,
+                            { username, password });
+            
+            console.log(usuario)
+            setUser(usuario.data);
+            return usuario.data;
+        } catch (error) {
+            throw new Error("Intentelo más tarde");
+        }
     }
 
     return (
         <userContext.Provider
             value={{
                 user,
-                createUser,
+                signUp,
                 deleteUser,
                 editUser,
                 getUser,
