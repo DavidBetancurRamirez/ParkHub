@@ -7,6 +7,7 @@ import { UserContextProvider } from './context/userContext';
 import { MessageContextProvider } from './context/messageContext';
 import Sesion from './components/Sesion';
 import Principal from './components/Principal';
+import Perfil from './components/Perfil';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Routes>
               <Route path='/' element={<Principal />} />
               <Route path='/sesion' element={<Sesion />} />
+              <Route path='/perfil' element={<Perfil />} />
             </Routes>
           </BrowserRouter>
 
