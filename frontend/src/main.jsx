@@ -1,30 +1,25 @@
-import './main.css';
+import './styles/main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContextProvider } from './context/userContext';
 import { MessageContextProvider } from './context/messageContext';
-import Sesion from './components/Sesion';
-import Principal from './components/Principal';
+
+import Ruteo from './Ruteo';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
     {/* Contextos */}
-    <MessageContextProvider>
-      <UserContextProvider>
+      <MessageContextProvider>
+        <UserContextProvider>
 
-          {/* Ruteo */}
-          <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Principal />} />
-              <Route path='/sesion' element={<Sesion />} />
-            </Routes>
-          </BrowserRouter>
+          {/* Rutas */}
+          <Ruteo />
 
-      </UserContextProvider>
-    </MessageContextProvider>
+        </UserContextProvider>
+      </MessageContextProvider>
 
   </React.StrictMode>
-)
+);
